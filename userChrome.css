@@ -1,0 +1,245 @@
+
+ /*/*#titlebar {
+    visibility: collapse;
+  }
+
+ #sidebar-header {
+    visibility: collapse !important;
+  } */
+
+  /* hides the native tabs */
+/*#TabsToolbar {
+    visibility: collapse;
+  }*/
+  
+  /* leaves space for the window buttons */
+ /* #nav-bar {
+      /*margin-top: -8px;*/
+     /* margin-right: 74px;
+      margin-bottom: -4px;
+  }*/
+  
+  /* Custom min-max-close Buttons */
+.titlebar-button {
+	transition: all 0.3s ease !important;
+	padding: 8px 6px !important;
+}
+.titlebar-button > .toolbarbutton-icon {
+	transition: all 0.3s ease !important;
+	list-style-image: none;
+  border: 1px solid;
+	border-radius: 10px;
+}
+.titlebar-button.titlebar-min > .toolbarbutton-icon {
+	background: #27c840 !important;
+  border-color: #27c83f7a !important;
+}
+
+.titlebar-button.titlebar-max > .toolbarbutton-icon,
+.titlebar-button.titlebar-restore > .toolbarbutton-icon {
+	background: #febb2e !important;
+  border-color: #febc2e7c !important;
+}
+
+.titlebar-button.titlebar-close > .toolbarbutton-icon {
+	background: #ff5f57 !important;
+	stroke: #ff5f57 !important;
+  border-color: #ff5f5777 !important;
+  
+}
+.titlebar-button.titlebar-close:hover > .toolbarbutton-icon {
+	background: #ff5f5742 !important;
+  border: 1px solid;
+  border-color: #ff5f57 !important;
+}
+.titlebar-button.titlebar-close:hover {
+	background: #fdfdfd00 !important;
+}
+.titlebar-button.titlebar-max:hover > .toolbarbutton-icon,
+.titlebar-button.titlebar-restore:hover > .toolbarbutton-icon {
+	background: #febc2e44 !important;
+  border: 1px solid;
+  border-color: #febb2e !important;
+}
+.titlebar-button.titlebar-max:hover, .titlebar-button.titlebar-restore:hover {
+	background: #fdfdfd00 !important;
+}
+.titlebar-button.titlebar-min:hover > .toolbarbutton-icon {
+	background: #27c83f38 !important;
+  border: 1px solid;
+  border-color: #27c840 !important;
+}
+.titlebar-button.titlebar-min:hover {
+	background: #fdfdfd00 !important;
+}
+
+
+/*************************************************** Disable_Horizontal_Tabs ***************************************************/
+:root {
+  --thin-tab-width: 55px;
+  --wide-tab-width: 320px;
+  --sidebar-min-width: 136px;
+  --sidebar-visible-width: 320px;
+  --uc-window-control-width: 80px;/*898px; /* Space reserved for window controls */
+  --uc-window-drag-space-width: 0px; /* Extra space reserved on both sides of the nav-bar to be able to drag the window */
+  --uc-toolbar-height: 64px;
+
+  --scrollbar-width: thin;
+}
+:root{
+  --scrollbar-width: thin;
+}
+
+/* Scrollbar colors and width - applied globally */
+:root{
+  scrollbar-width: thin;
+}
+
+/* Australian edition
+#main-window {
+transform:scaley(-1);
+}
+*/
+
+#viewerContainer > #viewer > .page > .canvasWrapper > canvas {
+    filter: grayscale(100%);
+    filter: invert(100%);
+}
+
+#viewerContainer > #viewer > .page > .textLayer ::selection {
+    /*background-color: #000000;*/  /* original */
+    background-color: #FFFFFF;
+}
+
+#sidebar-header {
+  overflow: hidden !important;
+}
+
+#tabbrowser-tabs {
+  visibility: collapse !important;
+}
+
+#sidebar-box #sidebar-header {
+  display: none !important;
+}
+
+#sidebar-box,
+#sidebar-header {
+  position: relative !important;
+  min-width: var(--sidebar-min-width) !important;
+  max-width: var(--sidebar-min-width) !important;
+transition: .1s ease .1s;
+  z-index:1;
+}
+
+#sidebar-box:hover :-moz-any(#sidebar,#sidebar-header) {
+  min-width: var(--sidebar-visible-width) !important;
+  max-width: var(--sidebar-visible-width) !important;
+  margin-right: calc((var(--sidebar-visible-width) - var(--sidebar-min-width)) * -1) !important;
+  z-index:1;
+  position: relative !important;
+transition: .21s ease 3.20s;
+
+}
+
+#sidebar-box:not([sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"]) {
+  min-width: var(--wide-tab-width) !important;
+  max-width: none !important;
+}
+
+#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] {
+  position: relative !important;
+  transition: all 300ms !important;
+  min-width: var(--thin-tab-width) !important;
+  max-width: var(--thin-tab-width) !important;
+  opacity: 0.5 !important;
+  transition: all 250ms cubic-bezier(0.075, 0.820, 0.165, 1.000);
+}
+
+
+/* Hide splitter, when using Tree Style Tab. */
+#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"]+#sidebar-splitter {
+    display: none !important;
+}
+
+/* Hide sidebar header, when using Tree Style Tab. */
+#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] #sidebar-header {
+    visibility: collapse;
+}
+
+#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"]:hover {
+  transition: all 300ms !important;
+  min-width: var(--wide-tab-width) !important;
+  max-width: var(--wide-tab-width) !important;
+
+  /* Negative right-margin to keep page from being pushed to the side. */
+  margin-right: calc((var(--wide-tab-width) - var(--thin-tab-width)) * -1) !important;
+  z-index: 1;
+  opacity: 1 !important;
+  transition: all 250ms cubic-bezier(0.075, 0.820, 0.165, 1.000);
+}
+
+
+#nav-bar::before,
+#nav-bar::after{
+  content: "";
+  display: -moz-box;
+  width: var(--uc-window-drag-space-width);
+}
+
+toolbar#nav-bar::after{ width: calc(var(--uc-window-control-width) + var(--uc-window-drag-space-width,0px)) }
+
+:root:not([uidensity="compact"]){--uc-toolbar-height: 38px}
+
+#TabsToolbar{ visibility: collapse !important }
+
+:root:not([inFullscreen]) #nav-bar{
+  margin-top: calc(0px - var(--uc-toolbar-height));
+}
+
+#toolbar-menubar{
+  min-height:unset !important;
+  height:var(--uc-toolbar-height) !important;
+  position: relative;
+}
+/*********************************************************************************************************************/
+
+/*********************************************************************************************************************/
+/************************************************ Hover_text_color ***************************************************/
+tooltip{-moz-appearance: none !important; background:#232323 !important; color: #ededed}
+/*********************************************************************************************************************/
+/******************************************* Remove_Search_with_Google ***********************************************/
+#urlbar[usertyping] .urlbarView-row:not([type]):first-child,
+#urlbar[usertyping] .urlbarView-row[type="search"]:first-child,
+.urlbarView-row[type="tabtosearch"] {
+  display: none !important;
+}
+/*********************************************************************************************************************/
+/******************************************* Remove_Padding_and_button_fix *************************************************/
+#urlbar-container{ padding-block: 0px !important }
+.titlebar-buttonbox-container{ -moz-box-align: start !important; }
+/*********************************************************************************************************************/
+/*************************************** Remove 1 pixel sized black line *********************************************/
+#navigator-toolbox {
+  border-bottom: none !important;
+}
+/*********************************************************************************************************************/
+/*************************************** Remove Right Click Menu Top Settings ****************************************/
+#context-navigation,#context-sep-navigation{ display: none !important }
+/*********************************************************************************************************************/
+/*************************************** Shrink toolbar by 1 pixel *********************************************/
+#navigator-toolbox{
+  --toolbarbutton-inner-padding: 0px;
+}
+#urlbar-container{
+  --urlbar-container-height: 40px !important;
+  padding-block: 4px !important;
+}
+toolbarbutton.bookmark-item:not(.subviewbutton){
+  margin: 8px !important;
+  padding-block: 0 !important;
+}
+/*********************************************************************************************************************/
+/*************************************** Remove Bookmarks Star *******************************************************/
+#star-button-box {display: none !important;}
+/*********************************************************************************************************************/
